@@ -1,15 +1,20 @@
 package work.aki7chyan.subgroup.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import work.aki7chyan.subgroup.Config.JwtConfig;
+import work.aki7chyan.subgroup.Entity.LoginInfo;
+import work.aki7chyan.subgroup.Entity.ResultMsg;
 import work.aki7chyan.subgroup.Utils.ResultTool;
+import work.aki7chyan.subgroup.Utils.ResultUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import static work.aki7chyan.subgroup.Controller.LoginController.checkUserToken;
+import static work.aki7chyan.subgroup.Controller.LoginController.getLoginUser;
 
 @RestController
 public class TokenController {
@@ -31,12 +36,12 @@ public class TokenController {
 
         // 这里模拟通过用户名和密码，从数据库查询userId
         // 这里把userId转为String类型，实际开发中如果subject需要存userId，则可以JwtConfig的createToken方法的参数设置为Long类型
-        String userId = 5 + "";
-        String token = jwtConfig.createToken(userId) ;
-        if (!StringUtils.isEmpty(token)) {
-            json.put("token",token) ;
-        }
-        return ResultTool.success(json) ;
+        LoginInfo loginInfo = new LoginInfo(userName,passWord,"",0,false);
+        String str = loginInfo.toJsonText().toJSONString();
+        String token = jwtConfig.createToken(str);
+        ResultMsg resultMsg = new ResultMsg("200","Success",token);
+        JSONObject srt = resultMsg.toJsonText();
+        return srt;
     }
 
     /**
@@ -54,7 +59,15 @@ public class TokenController {
      */
     @RequestMapping("/getUserInfo")
     public JSONObject getUserInfo(HttpServletRequest request){
-        String usernameFromToken = jwtConfig.getUsernameFromToken(request.getHeader("token"));
-        return ResultTool.success(usernameFromToken) ;
+        String token;
+        ResultMsg resultMsg = checkUserToken(request);
+        if(resultMsg.getErrorCode() != "200"){
+            return ResultUtil.getResultJson(resultMsg);
+        }else{
+            token = (String) resultMsg.getData();
+        }
+        LoginInfo loginInfo = getLoginUser(token);
+        JSONObject newJson = ResultUtil.getResultJson("200","Success",loginInfo.toJsonText());
+        return newJson;
     }
 }
