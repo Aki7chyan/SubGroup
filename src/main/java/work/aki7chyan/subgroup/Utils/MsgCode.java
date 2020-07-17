@@ -1,7 +1,7 @@
 package work.aki7chyan.subgroup.Utils;
 
 /**
- * 请求结果枚举类。
+ * 请求响应码枚举类
  */
 public enum MsgCode {
 

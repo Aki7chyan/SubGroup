@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import static work.aki7chyan.subgroup.Controller.LoginController.checkUserToken;
 import static work.aki7chyan.subgroup.Controller.LoginController.getLoginUser;
 
+/**
+ * token相关控制层
+ */
 @RestController
 public class TokenController {
     @Resource
@@ -25,7 +28,7 @@ public class TokenController {
      * 用户登录接口
      * @param userName
      * @param passWord
-     * @return
+     * @return token字符串
      */
     @RequestMapping("/login")
     public JSONObject login (@RequestParam("userName") String userName,
@@ -55,7 +58,7 @@ public class TokenController {
     /**
      * 根据请求头的token获取userId
      * @param request
-     * @return
+     * @return 用户信息
      */
     @RequestMapping("/getUserInfo")
     public JSONObject getUserInfo(HttpServletRequest request){
