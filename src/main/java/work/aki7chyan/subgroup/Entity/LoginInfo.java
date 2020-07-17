@@ -12,15 +12,18 @@ public class LoginInfo {
     private static String NickName;
     //手机
     private static String MobTel;
+    //头像
+    private static String HeadUrl;
     //用户等级
     private static int RankLevel;
     //是否禁用
     private static boolean IsBanned;
 
-    public LoginInfo(String Uid, String NickName, String MobTel, int RankLevel, boolean IsBanned) {
+    public LoginInfo(String Uid, String NickName, String MobTel, String HearUrl, int RankLevel, boolean IsBanned) {
         this.Uid = Uid;
         this.NickName = NickName;
         this.MobTel = MobTel;
+        this.HeadUrl = HearUrl;
         this.RankLevel = RankLevel;
         this.IsBanned = IsBanned;
     }
@@ -74,6 +77,22 @@ public class LoginInfo {
     }
 
     /**
+     * 获取头像
+     * @return  头像
+     */
+    public static String getHeadUrl() {
+        return HeadUrl;
+    }
+
+    /**
+     * 设置头像
+     * @param headUrl 头像
+     */
+    public static void setHeadUrl(String headUrl) {
+        HeadUrl = headUrl;
+    }
+
+    /**
      * 获取权限等级
      * @return  权限等级
      */
@@ -114,6 +133,7 @@ public class LoginInfo {
         json.put("Uid",this.Uid);
         json.put("NickName",this.NickName);
         json.put("MobTel",this.MobTel);
+        json.put("HeadUrl",this.HeadUrl);
         json.put("RankLevel",this.RankLevel);
         json.put("IsBanned",this.IsBanned);
         return json;

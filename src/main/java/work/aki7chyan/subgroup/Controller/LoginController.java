@@ -2,9 +2,7 @@ package work.aki7chyan.subgroup.Controller;
 
 import com.alibaba.fastjson.JSONObject;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.SignatureException;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RestController;
 import work.aki7chyan.subgroup.Config.JwtConfig;
 import work.aki7chyan.subgroup.Entity.LoginInfo;
 import work.aki7chyan.subgroup.Entity.ResultMsg;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 登录控制层
  */
-@RestController
 public class LoginController {
 
     @Resource
