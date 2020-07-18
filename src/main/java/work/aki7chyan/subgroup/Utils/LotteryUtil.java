@@ -13,19 +13,19 @@ public class LotteryUtil {
     //生成随机数的基数
     private static int SourceNum = 100000000;
 
-//    public static void main(String [] args){
-//
-//        int num = getTakeNum(0,0.15,10,1.5);
-//        System.err.println(num);
-////        List<Integer> list = getRollsNum(10);
-//        List<Integer> list = getWinNumList(num,new int[]{1,3,2,2,2},new int[]{225,1500,300,300,300,1000,2641,1117,1117});
-//        int all = 0;
-//        for (int item:list) {
-//            System.out.println(item);
-//            all += item;
-//        }
-//        System.err.println(all);
-//    }
+    public static void main(String [] args){
+
+        int num = getTakeNum(0,0.15,10,1.5);
+        System.err.println(num*1.0/1000000+"%");
+//        List<Integer> list = getRollsNum(10);
+        List<Integer> list = getWinNumList(num,new int[]{1,3,2,2,2},new int[]{225,1500,300,300,300,1000,2641,1117,1117});
+        int all = 0;
+        for (int item:list) {
+            System.out.println(item*1.0/1000000+"%");
+            all += item;
+        }
+        System.err.println(all*1.0/1000000+"%");
+    }
 
     /**
      * 获取保底时基于基数的出货数量(暂仅处理左边界为0的情况)
