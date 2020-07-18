@@ -16,7 +16,7 @@ public class MD5Util {
     private static String hex(byte[] arr) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < arr.length; ++i) {
-            sb.append(Integer.toHexString((arr[i] & 0xFF) | 0x100).substring(1, 3));
+            sb.append(Integer.toHexString((arr[i] & 0xFF) | 0x100), 1, 3);
         }
         return sb.toString();
     }
