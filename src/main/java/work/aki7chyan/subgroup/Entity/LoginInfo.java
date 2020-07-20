@@ -1,10 +1,12 @@
 package work.aki7chyan.subgroup.Entity;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
 
 /**
  * 登录信息
  */
+@Data
 public class LoginInfo {
     //用户标识
     private static String Uid;
@@ -28,101 +30,101 @@ public class LoginInfo {
         this.IsBanned = IsBanned;
     }
 
-    /**
-     * 获取用户标识
-     * @return  用户标识
-     */
-    public static String getUid() {
-        return Uid;
-    }
-
-    /**
-     * 设置用户标识
-     * @param uid 用户标识
-     */
-    public static void setUid(String uid) {
-        Uid = uid;
-    }
-
-    /**
-     * 获取昵称
-     * @return  昵称
-     */
-    public static String getNickName() {
-        return NickName;
-    }
-
-    /**
-     * 设置昵称
-     * @param nickName 昵称
-     */
-    public static void setNickName(String nickName) {
-        NickName = nickName;
-    }
-
-    /**
-     * 获取手机
-     * @return  手机
-     */
-    public static String getMobTel() {
-        return MobTel;
-    }
-
-    /**
-     * 设置手机
-     * @param mobTel 手机
-     */
-    public static void setMobTel(String mobTel) {
-        MobTel = mobTel;
-    }
-
-    /**
-     * 获取头像
-     * @return  头像
-     */
-    public static String getHeadUrl() {
-        return HeadUrl;
-    }
-
-    /**
-     * 设置头像
-     * @param headUrl 头像
-     */
-    public static void setHeadUrl(String headUrl) {
-        HeadUrl = headUrl;
-    }
-
-    /**
-     * 获取权限等级
-     * @return  权限等级
-     */
-    public static int getRankLevel() {
-        return RankLevel;
-    }
-
-    /**
-     * 设置权限等级
-     * @param rankLevel 权限等级
-     */
-    public static void setRankLevel(int rankLevel) {
-        RankLevel = rankLevel;
-    }
-
-    /**
-     * 获取禁用状态.
-     * @return  禁用状态
-     */
-    public static boolean isIsBanned() {
-        return IsBanned;
-    }
-
-    /**
-     * 设置权限
-     * @param isBanned 是否禁用
-     */
-    public static void setIsBanned(boolean isBanned) {
-        IsBanned = isBanned;
-    }
+//    /**
+//     * 获取用户标识
+//     * @return  用户标识
+//     */
+//    public static String getUid() {
+//        return Uid;
+//    }
+//
+//    /**
+//     * 设置用户标识
+//     * @param uid 用户标识
+//     */
+//    public static void setUid(String uid) {
+//        Uid = uid;
+//    }
+//
+//    /**
+//     * 获取昵称
+//     * @return  昵称
+//     */
+//    public static String getNickName() {
+//        return NickName;
+//    }
+//
+//    /**
+//     * 设置昵称
+//     * @param nickName 昵称
+//     */
+//    public static void setNickName(String nickName) {
+//        NickName = nickName;
+//    }
+//
+//    /**
+//     * 获取手机
+//     * @return  手机
+//     */
+//    public static String getMobTel() {
+//        return MobTel;
+//    }
+//
+//    /**
+//     * 设置手机
+//     * @param mobTel 手机
+//     */
+//    public static void setMobTel(String mobTel) {
+//        MobTel = mobTel;
+//    }
+//
+//    /**
+//     * 获取头像
+//     * @return  头像
+//     */
+//    public static String getHeadUrl() {
+//        return HeadUrl;
+//    }
+//
+//    /**
+//     * 设置头像
+//     * @param headUrl 头像
+//     */
+//    public static void setHeadUrl(String headUrl) {
+//        HeadUrl = headUrl;
+//    }
+//
+//    /**
+//     * 获取权限等级
+//     * @return  权限等级
+//     */
+//    public static int getRankLevel() {
+//        return RankLevel;
+//    }
+//
+//    /**
+//     * 设置权限等级
+//     * @param rankLevel 权限等级
+//     */
+//    public static void setRankLevel(int rankLevel) {
+//        RankLevel = rankLevel;
+//    }
+//
+//    /**
+//     * 获取禁用状态.
+//     * @return  禁用状态
+//     */
+//    public static boolean isIsBanned() {
+//        return IsBanned;
+//    }
+//
+//    /**
+//     * 设置权限
+//     * @param isBanned 是否禁用
+//     */
+//    public static void setIsBanned(boolean isBanned) {
+//        IsBanned = isBanned;
+//    }
 
     /**
      * 获取Json
