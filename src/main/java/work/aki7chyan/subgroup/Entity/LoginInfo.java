@@ -131,6 +131,7 @@ public class LoginInfo {
      * @return Json
      */
     public JSONObject toJsonText(){
+        //建议通过反射获取属性与值，进行Json序列化、或者使用原生Json序列化方法（此方法暂出现问题，序列化不成功）
         JSONObject json = new JSONObject();
         json.put("Uid",this.Uid);
         json.put("NickName",this.NickName);
