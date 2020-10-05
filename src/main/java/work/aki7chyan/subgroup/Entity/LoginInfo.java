@@ -9,6 +9,8 @@ public class LoginInfo {
     private static int RankLevel;
     private static boolean IsBanned;
 
+    public LoginInfo() {}
+
     public LoginInfo(String Uid, String NickName, String MobTel, int RankLevel, boolean IsBanned) {
         this.Uid = Uid;
         this.NickName = NickName;
