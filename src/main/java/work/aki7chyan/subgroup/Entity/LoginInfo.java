@@ -21,6 +21,8 @@ public class LoginInfo {
     //是否禁用
     private static boolean IsBanned;
 
+    public LoginInfo() { }
+
     public LoginInfo(String Uid, String NickName, String MobTel, String HearUrl, int RankLevel, boolean IsBanned) {
         this.Uid = Uid;
         this.NickName = NickName;
