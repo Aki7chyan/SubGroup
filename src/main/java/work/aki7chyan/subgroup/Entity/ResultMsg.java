@@ -9,28 +9,28 @@ import work.aki7chyan.subgroup.Utils.MsgCode;
  */
 @Data
 public class ResultMsg {
-    private static String ErrorCode;
-    private static String Message;
-    private static Object Data;
+    private String errorCode;
+    private String message;
+    private Object data;
 
     public ResultMsg() { }
 
     public ResultMsg(String code, JSONObject data) {
-        this.ErrorCode = code;
-        this.Message = MsgCode.getMsgByCode(code);
-        this.Data = data;
+        this.errorCode = code;
+        this.message = MsgCode.getMsgByCode(code);
+        this.data = data;
     }
 
     public ResultMsg(String code, String msg, JSONObject data) {
-        this.ErrorCode = code;
-        this.Message = msg;
-        this.Data = data;
+        this.errorCode = code;
+        this.message = msg;
+        this.data = data;
     }
 
     public ResultMsg(String code, String msg, String data) {
-        this.ErrorCode = code;
-        this.Message = msg;
-        this.Data = data;
+        this.errorCode = code;
+        this.message = msg;
+        this.data = data;
     }
 
 //    /**
@@ -87,9 +87,9 @@ public class ResultMsg {
      */
     public JSONObject toJsonText(){
         JSONObject json = new JSONObject();
-        json.put("ErrorCode",this.ErrorCode);
-        json.put("Message",this.Message);
-        json.put("Data",this.Data);
+        json.put("ErrorCode",this.errorCode);
+        json.put("Message",this.message);
+        json.put("Data",this.data);
         return json;
     }
 }
