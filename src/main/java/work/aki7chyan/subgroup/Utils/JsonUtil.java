@@ -2,6 +2,9 @@ package work.aki7chyan.subgroup.Utils;
 
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * Json工具类
+ */
 public class JsonUtil {
 
 //    public static JSONObject getResultJson(String code, String msg, Object data){

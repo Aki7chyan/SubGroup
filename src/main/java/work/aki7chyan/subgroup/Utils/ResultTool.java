@@ -2,6 +2,9 @@ package work.aki7chyan.subgroup.Utils;
 
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * 测试工具类
+ */
 public class ResultTool {
 
     private static String code;

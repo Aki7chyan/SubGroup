@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import static work.aki7chyan.subgroup.Controller.LoginController.checkUserToken;
 import static work.aki7chyan.subgroup.Controller.LoginController.getLoginUser;
 
+/**
+ * token相关控制层
+ */
 @RestController
 public class TokenController {
     @Resource
@@ -25,7 +28,7 @@ public class TokenController {
      * 用户登录接口
      * @param userName
      * @param passWord
-     * @return
+     * @return token字符串
      */
     @RequestMapping("/login")
     public JSONObject login (@RequestParam("userName") String userName,
@@ -36,7 +39,7 @@ public class TokenController {
 
         // 这里模拟通过用户名和密码，从数据库查询userId
         // 这里把userId转为String类型，实际开发中如果subject需要存userId，则可以JwtConfig的createToken方法的参数设置为Long类型
-        LoginInfo loginInfo = new LoginInfo(userName,passWord,"",0,false);
+        LoginInfo loginInfo = new LoginInfo(userName,passWord,"","",0,false);
         String str = loginInfo.toJsonText().toJSONString();
         String token = jwtConfig.createToken(str);
         ResultMsg resultMsg = new ResultMsg("200","Success",token);
@@ -55,7 +58,7 @@ public class TokenController {
     /**
      * 根据请求头的token获取userId
      * @param request
-     * @return
+     * @return 用户信息
      */
     @RequestMapping("/getUserInfo")
     public JSONObject getUserInfo(HttpServletRequest request){
